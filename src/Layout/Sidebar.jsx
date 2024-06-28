@@ -1,53 +1,41 @@
-import { MenuDatas } from '../components/Datas';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import { MenuDatas } from '../components/Datas'
 
 function Sidebar() {
-  // active link
-  const currentPath = (path) => {
-    const currentPath =
-      window.location.pathname.split('/')[1] === path.split('/')[1];
-    if (currentPath) {
-      return path;
-    }
-    return null;
-  };
+	// active link
+	const currentPath = (path) => {
+		const currentPath = window.location.pathname.split('/')[1] === path.split('/')[1]
+		if (currentPath) {
+			return path
+		}
+		return null
+	}
 
-  return (
-    <div className="bg-white xl:shadow-lg py-6 px-4 xl:h-screen w-full border-r border-border">
-      <Link to="/">
-        <img
-          src="/images/logo.png"
-          alt="logo"
-          className="w-3/4 h-12 ml-4 object-contain"
-        />
-      </Link>
-      <div className="flex-colo gap-2 mt-6">
-        {MenuDatas.map((item, index) => (
-          <Link
-            to={item.path}
-            key={index}
-            className={`
-            ${currentPath(item.path) === item.path ? 'bg-text' : ''}
-            flex gap-4 transitions group items-center w-full p-4 rounded-lg hover:bg-text`}
-          >
-            <item.icon
-              className={`text-xl text-subMain
-            `}
-            />
-            <p
-              className={`text-sm font-medium group-hover:text-subMain ${
-                currentPath(item.path) === item.path
-                  ? 'text-subMain'
-                  : 'text-gray-500'
-              }`}
-            >
-              {item.title}
-            </p>
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
+	return (
+		<div className="w-full border-border border-r bg-white px-4 py-6 xl:h-screen xl:shadow-lg">
+			<Link to="/">
+				<img src="/images/logo.png" alt="logo" className="ml-4 h-12 w-3/4 object-contain" />
+			</Link>
+			<div className="mt-6 flex-colo gap-2">
+				{MenuDatas.map((item, index) => (
+					<Link
+						to={item.path}
+						key={index}
+						className={`${currentPath(item.path) === item.path ? 'bg-text' : ''}transitions group flex w-full items-center gap-4 rounded-lg p-4 hover:bg-text`}
+					>
+						<item.icon className={'text-subMain text-xl '} />
+						<p
+							className={`font-medium text-sm group-hover:text-subMain ${
+								currentPath(item.path) === item.path ? 'text-subMain' : 'text-gray-500'
+							}`}
+						>
+							{item.title}
+						</p>
+					</Link>
+				))}
+			</div>
+		</div>
+	)
 }
 
-export default Sidebar;
+export default Sidebar

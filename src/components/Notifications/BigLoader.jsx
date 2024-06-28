@@ -1,11 +1,11 @@
-import { PropagateLoader } from 'react-spinners';
+import { PropagateLoader } from 'react-spinners'
 
 function BigLoader() {
-  return (
-    <div className="w-full py-4 px-2 flex-colo h-screen">
-      <PropagateLoader color="#07b8db" />
-    </div>
-  );
+	return (
+		<div className="h-screen w-full flex-colo px-2 py-4">
+			<PropagateLoader color="#07b8db" />
+		</div>
+	)
 }
 
-export default BigLoader;
+export default BigLoader

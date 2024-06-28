@@ -1,0 +1,67 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"files": {
+		"ignore": ["**/*.gen.ts", "server/src/db/migrations/**", "server/src/db/migrations/meta/**"]
+	},
+	"formatter": {
+		"enabled": true,
+		"lineWidth": 120,
+		"indentWidth": 2,
+		"lineEnding": "lf"
+	},
+	"css": {
+		"parser": {
+			"cssModules": true
+		},
+		"formatter": {
+			"enabled": true,
+			"lineWidth": 120,
+			"indentWidth": 2
+		},
+		"linter": {
+			"enabled": true
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"enabled": true,
+			"lineWidth": 120,
+			"semicolons": "asNeeded",
+			"trailingCommas": "es5",
+			"jsxQuoteStyle": "double",
+			"quoteStyle": "single",
+			"indentWidth": 2
+		}
+	},
+	"json": {
+		"formatter": {
+			"enabled": true,
+			"lineWidth": 120,
+			"indentWidth": 2
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"complexity": {
+				"noForEach": "off"
+			},
+			"correctness": {
+				"noUnusedImports": "warn"
+			},
+			"style": {
+				"noNonNullAssertion": "off"
+			},
+			"suspicious": {
+				"noArrayIndexKey": "off"	
+			},
+			"nursery": {
+				"useSortedClasses": "warn"
+			}
+		}
+	},
+	"organizeImports": {
+		"enabled": true
+	}
+}
