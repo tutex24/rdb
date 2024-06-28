@@ -9,7 +9,7 @@ import {
 import { FaStar } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 // import React from 'react';
-import Layout from '../Layout'
+import Layout from '../PrivateLayout'
 import { DashboardBigChart, DashboardSmallChart } from '../components/Charts'
 import { appointmentsData, dashboardCards, memberData, reviewData, transactionData } from '../components/Datas'
 import { Transactiontable } from '../components/Tables'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { BiUserPlus } from 'react-icons/bi'
 import { RiLockPasswordLine } from 'react-icons/ri'
-import Layout from '../Layout'
+import Layout from '../PrivateLayout'
 import ChangePassword from '../components/UsedComp/ChangePassword'
 import PersonalInfo from '../components/UsedComp/PersonalInfo'
 

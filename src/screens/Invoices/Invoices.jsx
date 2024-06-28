@@ -3,7 +3,7 @@ import { BiPlus } from 'react-icons/bi'
 import { MdOutlineCloudDownload } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 // import React from 'react';
-import Layout from '../../Layout'
+import Layout from '../../PrivateLayout'
 import { invoicesData } from '../../components/Datas'
 import { Button } from '../../components/Form'
 import { InvoiceTable } from '../../components/Tables'

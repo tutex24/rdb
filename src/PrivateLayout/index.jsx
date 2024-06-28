@@ -1,7 +1,19 @@
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { usePocket } from '../contexts/PocketContext'
 import Header from './Header'
 import Sidebar from './Sidebar'
 
 function index({ children, title }) {
+	const { user } = usePocket()
+	const navigate = useNavigate()
+
+	useEffect(() => {
+		if (!user) {
+			navigate('/login')
+		}
+	}, [navigate, user])
+
 	return (
 		<div className="flex-colo bg-dry xl:h-screen ">
 			<div className="grid w-full xl:grid-cols-12 2xl:max-w-[2000px]">

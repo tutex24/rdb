@@ -6,9 +6,10 @@ import BigLoader from './components/Notifications/BigLoader'
 import Toast from './components/Notifications/Toast'
 import Chats from './screens/Chats/Chats'
 import './main.css'
+import { PocketProvider } from './contexts/PocketContext'
 
 const Dashboard = React.lazy(() => import('./screens/Dashboard'))
-const Payments = React.lazy(() => import('./screens/Payments/Payments'))
+// const Payments = React.lazy(() => import('./screens/Payments/Payments'))
 const Appointments = React.lazy(() => import('./screens/Appointments'))
 const Patients = React.lazy(() => import('./screens/Patients/Patients'))
 const Campaings = React.lazy(() => import('./screens/Campaings'))
@@ -18,8 +19,8 @@ const Settings = React.lazy(() => import('./screens/Settings'))
 const CreateInvoice = React.lazy(() => import('./screens/Invoices/CreateInvoice'))
 const EditInvoice = React.lazy(() => import('./screens/Invoices/EditInvoice'))
 const PreviewInvoice = React.lazy(() => import('./screens/Invoices/PreviewInvoice'))
-const EditPayment = React.lazy(() => import('./screens/Payments/EditPayment'))
-const PreviewPayment = React.lazy(() => import('./screens/Payments/PreviewPayment'))
+// const EditPayment = React.lazy(() => import('./screens/Payments/EditPayment'))
+// const PreviewPayment = React.lazy(() => import('./screens/Payments/PreviewPayment'))
 const Medicine = React.lazy(() => import('./screens/Medicine'))
 const PatientProfile = React.lazy(() => import('./screens/Patients/PatientProfile'))
 const CreatePatient = React.lazy(() => import('./screens/Patients/CreatePatient'))
@@ -29,13 +30,13 @@ const Receptions = React.lazy(() => import('./screens/Receptions'))
 const NewMedicalRecode = React.lazy(() => import('./screens/Patients/NewMedicalRecode'))
 const NotFound = React.lazy(() => import('./screens/NotFound'))
 const Login = React.lazy(() => import('./screens/Login'))
-const Reviews = React.lazy(() => import('./screens/Reviews'))
+// const Reviews = React.lazy(() => import('./screens/Reviews'))
 
 function App() {
 	Aos.init()
 
 	return (
-		<>
+		<PocketProvider>
 			{/* Toaster */}
 			<Toast />
 			{/* Routes */}
@@ -79,31 +80,6 @@ function App() {
 						element={
 							<Suspense fallback={<BigLoader />}>
 								<PreviewInvoice />
-							</Suspense>
-						}
-					/>
-					{/* payments */}
-					<Route
-						path="/payments"
-						element={
-							<Suspense fallback={<BigLoader />}>
-								<Payments />
-							</Suspense>
-						}
-					/>
-					<Route
-						path="/payments/edit/:id"
-						element={
-							<Suspense fallback={<BigLoader />}>
-								<EditPayment />
-							</Suspense>
-						}
-					/>
-					<Route
-						path="/payments/preview/:id"
-						element={
-							<Suspense fallback={<BigLoader />}>
-								<PreviewPayment />
 							</Suspense>
 						}
 					/>
@@ -215,15 +191,6 @@ function App() {
 							</Suspense>
 						}
 					/>
-					{/* reviews */}
-					<Route
-						path="/reviews"
-						element={
-							<Suspense fallback={<BigLoader />}>
-								<Reviews />
-							</Suspense>
-						}
-					/>
 					{/* chats */}
 					<Route
 						path="/chats"
@@ -243,7 +210,7 @@ function App() {
 					/>
 				</Routes>
 			</BrowserRouter>
-		</>
+		</PocketProvider>
 	)
 }
 

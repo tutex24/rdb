@@ -7,8 +7,10 @@ import { useNavigate } from 'react-router-dom'
 import MenuDrawer from '../components/Drawer/MenuDrawer'
 import { MenuSelect } from '../components/Form'
 import NotificationComp from '../components/NotificationComp'
+import { usePocket } from '../contexts/PocketContext'
 
 function Header() {
+	const { user } = usePocket()
 	const [isOpen, setIsOpen] = React.useState(false)
 
 	// toggle drawer
@@ -33,6 +35,9 @@ function Header() {
 			},
 		},
 	]
+
+	console.log({ user })
+	const { avatar, collectionId, name } = user
 
 	return (
 		<>
@@ -70,11 +75,11 @@ function Header() {
 							<MenuSelect datas={DropDown1}>
 								<div className="flex items-center gap-4 rounded-lg p-4">
 									<img
-										src="/images/user1.png"
-										alt="user"
+										src={`../../pb_data/storage/${collectionId}/${avatar}`}
+										alt={`${name} Avatar`}
 										className="h-12 w-12 rounded-full border border-border object-cover"
 									/>
-									<p className="font-medium text-sm text-textGray">Dr. Daudi</p>
+									<p className="font-medium text-sm text-textGray">{name}</p>
 								</div>
 							</MenuSelect>
 						</div>

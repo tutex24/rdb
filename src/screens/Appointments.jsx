@@ -4,7 +4,7 @@ import { Calendar, momentLocalizer } from 'react-big-calendar'
 import { BiChevronLeft, BiChevronRight, BiPlus, BiTime } from 'react-icons/bi'
 import { HiOutlineViewGrid } from 'react-icons/hi'
 import { HiOutlineCalendarDays } from 'react-icons/hi2'
-import Layout from '../Layout'
+import Layout from '../PrivateLayout'
 import { servicesData } from '../components/Datas'
 import AddAppointmentModal from '../components/Modals/AddApointmentModal'
 

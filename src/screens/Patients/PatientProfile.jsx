@@ -1,7 +1,7 @@
 import React from 'react'
 import { IoArrowBackOutline } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
-import Layout from '../../Layout'
+import Layout from '../../PrivateLayout'
 import { patientTab } from '../../components/Datas'
 import AppointmentsUsed from '../../components/UsedComp/AppointmentsUsed'
 import InvoiceUsed from '../../components/UsedComp/InvoiceUsed'

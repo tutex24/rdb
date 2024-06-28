@@ -1,13 +1,15 @@
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions, Menu, Switch } from '@headlessui/react'
+import { forwardRef } from 'react'
 import DatePicker from 'react-datepicker'
 import { BiLoaderCircle } from 'react-icons/bi'
 import { FaCheck } from 'react-icons/fa'
 
-export function Input({ label, name, type, color, placeholder, register }) {
+export const Input = forwardRef(({ label, name, type, color, placeholder, register }, ref) => {
 	return (
 		<div className="w-full text-sm">
 			<label className={`${color ? 'text-black text-sm' : 'font-semibold text-white'}`}>{label}</label>
 			<input
+				ref={ref}
 				name={name}
 				{...register}
 				type={type}
@@ -18,14 +20,14 @@ export function Input({ label, name, type, color, placeholder, register }) {
 			/>
 		</div>
 	)
-}
+})
 
 // button
 
-export function Button({ label, onClick, loading, Icon }) {
+export function Button({ label, onClick, loading, Icon, type = 'button' }) {
 	return (
 		<button
-			type="button"
+			type={type}
 			disabled={loading}
 			onClick={onClick}
 			className={

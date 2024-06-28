@@ -1,6 +1,6 @@
 import { IoArrowBackOutline } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
-import Layout from '../../Layout'
+import Layout from '../../PrivateLayout'
 import PersonalInfo from '../../components/UsedComp/PersonalInfo'
 
 function CreatePatient() {

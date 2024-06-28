@@ -1,16 +1,19 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { toast } from 'react-hot-toast'
 import { BiPlus } from 'react-icons/bi'
 import { MdOutlineCloudDownload } from 'react-icons/md'
-import Layout from '../Layout'
-import { receptionsData } from '../components/Datas'
+import Layout from '../PrivateLayout'
 import { Button } from '../components/Form'
 import AddDoctorModal from '../components/Modals/AddDoctorModal'
 import { DoctorsTable } from '../components/Tables'
+import { usePocket } from '../contexts/PocketContext'
 
 function Receptions() {
+	const { pb } = usePocket()
 	const [isOpen, setIsOpen] = React.useState(false)
 	const [data, setData] = React.useState({})
+	const [receptions, setReceptions] = React.useState([])
 
 	const onCloseModal = () => {
 		setIsOpen(false)
@@ -21,6 +24,31 @@ function Receptions() {
 		setIsOpen(true)
 		setData(data)
 	}
+
+	useEffect(() => {
+		const getUsers = async () => {
+			const response = await pb.collection('users').getList()
+			const users = response.items.map((item) => ({
+				id: item.id,
+				user: {
+					id: item.id,
+					title: item.name,
+					image: '',
+					admin: false,
+					email: item.email,
+					phone: '',
+					age: '',
+					gender: '',
+					blood: '',
+					totalAppointments: '',
+					date: item.created,
+				},
+				title: 'Dr.',
+			}))
+			setReceptions(users)
+		}
+		getUsers()
+	}, [pb.collection])
 
 	return (
 		<Layout>
@@ -66,13 +94,15 @@ function Receptions() {
 					/>
 				</div>
 				<div className="mt-8 w-full overflow-x-scroll">
-					<DoctorsTable
-						doctor={false}
-						data={receptionsData}
-						functions={{
-							preview: preview,
-						}}
-					/>
+					{receptions.length > 0 ? (
+						<DoctorsTable
+							doctor={false}
+							data={receptions || []}
+							functions={{
+								preview: preview,
+							}}
+						/>
+					) : null}
 				</div>
 			</div>
 		</Layout>
