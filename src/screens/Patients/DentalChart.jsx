@@ -1,6 +1,5 @@
-
 function DentalChart() {
-  return <div>Coming soon</div>;
+	return <div>Coming soon</div>
 }
 
-export default DentalChart;
+export default DentalChart
