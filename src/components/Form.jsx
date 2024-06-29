@@ -1,4 +1,13 @@
-import { Listbox, ListboxButton, ListboxOption, ListboxOptions, Menu, Switch } from '@headlessui/react'
+import {
+	Listbox,
+	ListboxButton,
+	ListboxOption,
+	ListboxOptions,
+	Menu,
+	MenuButton,
+	MenuItems,
+	Switch,
+} from '@headlessui/react'
 import { forwardRef } from 'react'
 import DatePicker from 'react-datepicker'
 import { BiLoaderCircle } from 'react-icons/bi'
@@ -47,17 +56,16 @@ export function Button({ label, onClick, loading, Icon, type = 'button' }) {
 }
 
 // select
-
-export function MenuSelect({ children, datas, item: data }) {
+export function MenuSelect({ children, datas }) {
 	return (
 		<div className="relative w-full text-sm">
 			<Menu>
-				<Menu.Button>{children}</Menu.Button>
-				<Menu.Items className="absolute left-0 z-50 flex flex-col gap-4 rounded-md bg-white px-6 py-4 shadow-lg ring-1 ring-border focus:outline-none">
+				<MenuButton>{children}</MenuButton>
+				<MenuItems className="absolute left-0 z-50 flex flex-col gap-4 rounded-md bg-white px-6 py-4 shadow-lg ring-1 ring-border focus:outline-none">
 					{datas.map((item, index) => (
 						<button
 							type="button"
-							onClick={() => item.onClick(data)}
+							onClick={() => item.onClick(datas[item])}
 							key={index}
 							className={'flex items-center gap-4 hover:text-subMain'}
 						>
@@ -65,14 +73,13 @@ export function MenuSelect({ children, datas, item: data }) {
 							{item.title}
 						</button>
 					))}
-				</Menu.Items>
+				</MenuItems>
 			</Menu>
 		</div>
 	)
 }
 
 // select 2
-
 export function Select({ children, selectedPerson, setSelectedPerson, datas }) {
 	return (
 		<div className="relative w-full text-sm ">

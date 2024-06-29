@@ -3,7 +3,7 @@ import { MenuDatas } from '../components/Datas'
 
 function Sidebar() {
 	// active link
-	const currentPath = (path) => {
+	const currentPath = (path: string) => {
 		const currentPath = window.location.pathname.split('/')[1] === path.split('/')[1]
 		if (currentPath) {
 			return path

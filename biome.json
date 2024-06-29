@@ -1,7 +1,7 @@
 {
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
 	"files": {
-		"ignore": ["**/*.gen.ts", "server/src/db/migrations/**", "server/src/db/migrations/meta/**"]
+		"ignore": ["**/*.gen.ts", "pb_data/**"]
 	},
 	"formatter": {
 		"enabled": true,
@@ -54,7 +54,7 @@
 				"noNonNullAssertion": "off"
 			},
 			"suspicious": {
-				"noArrayIndexKey": "off"	
+				"noArrayIndexKey": "off"
 			},
 			"nursery": {
 				"useSortedClasses": "warn"

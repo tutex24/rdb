@@ -4,6 +4,7 @@ import { BiMenu } from 'react-icons/bi'
 import { MdOutlineNotificationsNone } from 'react-icons/md'
 import { TbUser } from 'react-icons/tb'
 import { useNavigate } from 'react-router-dom'
+
 import MenuDrawer from '../components/Drawer/MenuDrawer'
 import { MenuSelect } from '../components/Form'
 import NotificationComp from '../components/NotificationComp'
@@ -36,8 +37,7 @@ function Header() {
 		},
 	]
 
-	console.log({ user })
-	const { avatar, collectionId, name } = user
+	const { avatar, collectionId, name } = user || {}
 
 	return (
 		<>

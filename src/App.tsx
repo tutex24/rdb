@@ -1,26 +1,24 @@
-import './App.css'
 import Aos from 'aos'
 import React, { Suspense } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
 import BigLoader from './components/Notifications/BigLoader'
 import Toast from './components/Notifications/Toast'
-import Chats from './screens/Chats/Chats'
-import './main.css'
 import { PocketProvider } from './contexts/PocketContext'
+import Chats from './screens/Chats/Chats'
+
+import './App.css'
 
 const Dashboard = React.lazy(() => import('./screens/Dashboard'))
-// const Payments = React.lazy(() => import('./screens/Payments/Payments'))
 const Appointments = React.lazy(() => import('./screens/Appointments'))
 const Patients = React.lazy(() => import('./screens/Patients/Patients'))
-const Campaings = React.lazy(() => import('./screens/Campaings'))
+const Campaigns = React.lazy(() => import('./screens/Campaigns'))
 const Services = React.lazy(() => import('./screens/Services'))
 const Invoices = React.lazy(() => import('./screens/Invoices/Invoices'))
 const Settings = React.lazy(() => import('./screens/Settings'))
 const CreateInvoice = React.lazy(() => import('./screens/Invoices/CreateInvoice'))
 const EditInvoice = React.lazy(() => import('./screens/Invoices/EditInvoice'))
 const PreviewInvoice = React.lazy(() => import('./screens/Invoices/PreviewInvoice'))
-// const EditPayment = React.lazy(() => import('./screens/Payments/EditPayment'))
-// const PreviewPayment = React.lazy(() => import('./screens/Payments/PreviewPayment'))
 const Medicine = React.lazy(() => import('./screens/Medicine'))
 const PatientProfile = React.lazy(() => import('./screens/Patients/PatientProfile'))
 const CreatePatient = React.lazy(() => import('./screens/Patients/CreatePatient'))
@@ -50,7 +48,7 @@ function App() {
 							</Suspense>
 						}
 					/>
-					{/* invoce */}
+					{/* invoice */}
 					<Route
 						path="/invoices"
 						element={
@@ -163,7 +161,7 @@ function App() {
 						path="/campaigns"
 						element={
 							<Suspense fallback={<BigLoader />}>
-								<Campaings />
+								<Campaigns />
 							</Suspense>
 						}
 					/>

@@ -1,10 +1,17 @@
 import { useEffect } from 'react'
+import type { ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
+
 import { usePocket } from '../contexts/PocketContext'
 import Header from './Header'
 import Sidebar from './Sidebar'
 
-function index({ children, title }) {
+type Props = {
+	children: ReactNode
+	title: string
+}
+
+const index = ({ children, title }: Props) => {
 	const { user } = usePocket()
 	const navigate = useNavigate()
 
@@ -21,7 +28,7 @@ function index({ children, title }) {
 					<Sidebar />
 				</div>
 				<div className="relative col-span-10 overflow-y-scroll xl:h-screen">
-					<Header title={title} />
+					<Header />
 					<div className="px-2 xs:px-8 pt-24">{children}</div>
 				</div>
 			</div>
