@@ -36,8 +36,7 @@ function Header() {
 		},
 	]
 
-	console.log({ user })
-	const { avatar, collectionId, name } = user
+	const { avatar, collectionId, name } = user || {}
 
 	return (
 		<>
