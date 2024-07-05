@@ -10,7 +10,9 @@ import NotificationComp from '../components/NotificationComp'
 import { usePocket } from '../contexts/PocketContext'
 
 function Header() {
-	const { user } = usePocket()
+
+
+	const { logout,user } = usePocket()
 	const [isOpen, setIsOpen] = React.useState(false)
 
 	// toggle drawer
@@ -31,12 +33,16 @@ function Header() {
 			title: 'Logout',
 			icon: AiOutlinePoweroff,
 			onClick: () => {
-				navigate('/login')
+				logout();
+				navigate('/login');
+
 			},
 		},
 	]
 
-	const { avatar, collectionId, name } = user || {}
+	console.log(user);
+
+	const { avatar, collectionId, name, id } = user || {}
 
 	return (
 		<>
@@ -61,20 +67,20 @@ function Header() {
 				</div>
 				<div className="col-span-2 items-center justify-end pr-4 sm:col-span-1 md:col-span-1 md:pr-0">
 					<div className="float-right flex items-center justify-center gap-4">
-						<NotificationComp>
+						{/* <NotificationComp>
 							<div className="relative">
 								<MdOutlineNotificationsNone className="text-2xl hover:text-subMain" />
 								<span className="-top-2.5 -right-2.5 absolute rounded-full bg-subMain px-1.5 py-0.5 text-center font-semibold text-white text-xs">
 									5
 								</span>
 							</div>
-						</NotificationComp>
+						</NotificationComp> */}
 
 						<div className=" hidden items-center md:flex">
 							<MenuSelect datas={DropDown1}>
 								<div className="flex items-center gap-4 rounded-lg p-4">
 									<img
-										src={`../../pb_data/storage/${collectionId}/${avatar}`}
+										src={`..../../pb_data/storage/${collectionId}/${id}/${avatar}`}
 										alt={`${name} Avatar`}
 										className="h-12 w-12 rounded-full border border-border object-cover"
 									/>

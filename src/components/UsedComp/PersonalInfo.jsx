@@ -48,7 +48,7 @@ function PersonalInfo({ titles }) {
 						</Select>
 					</div>
 					{/* emergancy contact */}
-					<Input label="Emergency Cotact" color={true} type="number" />
+					<Input label="Emergency Contact" color={true} type="number" />
 					{/* date */}
 					<DatePickerComp label="Date of Birth" startDate={date} onChange={(date) => setDate(date)} />
 					{/* address */}

@@ -1103,20 +1103,11 @@ export const patientTab = [
 		icon: RiFileList3Line,
 	},
 	{
-		id: 4,
-		title: 'Payments',
-		icon: RiMoneyDollarCircleLine,
-	},
-	{
 		id: 5,
 		title: 'Images',
 		icon: RiImageLine,
 	},
-	{
-		id: 6,
-		title: 'Chart',
-		icon: RiStethoscopeLine,
-	},
+
 	{
 		id: 7,
 		title: 'Patient Information',

@@ -361,12 +361,12 @@ export function PatientTable({ data, functions, used }) {
 								)}
 
 								<div>
-									<h4 className="font-medium text-sm">{item.title}</h4>
-									<p className="mt-1 text-textGray text-xs">{item.phone}</p>
+									<h4 className="font-medium text-sm">{item.name}</h4>
+									<p className="mt-1 text-textGray text-xs">{item.phoneNumber}</p>
 								</div>
 							</div>
 						</td>
-						<td className={tdclasse}>{item.date}</td>
+						<td className={tdclasse}>{item.created}</td>
 
 						<td className={tdclasse}>
 							<span
@@ -379,7 +379,7 @@ export function PatientTable({ data, functions, used }) {
 						</td>
 						{!used && (
 							<>
-								<td className={tdclasse}>{item.blood}</td>
+								<td className={tdclasse}>{item.bloodType}</td>
 								<td className={tdclasse}>{item.age}</td>
 							</>
 						)}
