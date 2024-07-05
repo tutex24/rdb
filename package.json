@@ -4,6 +4,7 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
+		"dev:pb": "pocketbase serve",
 		"dev": "vite",
 		"build": "vite build",
 		"lint": "TIMING=1 biome check src/ --write",
